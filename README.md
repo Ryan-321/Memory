@@ -1,8 +1,14 @@
 # Memory
 
+<<<<<<< HEAD
 Link to game -
 
 http://ryan-321.github.io/Memory/  
+=======
+Link -
+
+  http://ryan-321.github.io/Memory/
+>>>>>>> gh-pages
 
 Technologies used -
 
