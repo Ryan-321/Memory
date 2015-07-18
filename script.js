@@ -55,6 +55,8 @@ var counter = 0;
 
 setSquare(); // puts background-image in squares
 
+
+
 function compareFlipped() {
 clearTimeout(timeKeeper);
 
@@ -76,6 +78,8 @@ if(flipped.length == 2) {
 
 } // end compareFlipped;
 
+
+
 function winner() {
 var winner = $( ".stayFlipped");
 
@@ -84,6 +88,8 @@ if(winner.length == 20) {
   $( "#gameboard" ).prepend( "<h2>WINNER!!!!!!</h2>" );
   }
 }
+
+
 
 function clear() {
  $( ".pieceContainer").removeClass( "stayFlipped" );
