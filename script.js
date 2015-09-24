@@ -1,101 +1,74 @@
-var timeKeeper;
+var memory = {
 
-var cards = document.querySelectorAll( ".pieceBack" );
+timeKeeper: undefined,
+cards: document.querySelectorAll( ".pieceBack" ),
+randomTracker: [],
+onClick: function() {
+  // Create a onclick event to rotate the squares
+  $(".pieceContainer" ).on( "click" , function() {
+    $( this ).addClass( "flip" );
+  });
+  $( ".pieceContainer" ).on( "click" , memory.time );
+  $( "button" ).on( "click" , memory.clear );
+  },
 
-var randomTracker = [];
-
-
-// Create a onclick event to rotate the squares
-$(".pieceContainer" ).on( "click" , function() {
-  $( this ).addClass( "flip" );
-});
-
-$( ".pieceContainer" ).on( "click" , time );
-
-$( "button" ).on( "click" , clear );
-
-
-function time() {
-  timeKeeper = setTimeout( compareFlipped , 500 );
-}
-
-
+time: function() {
+  memory.timeKeeper = setTimeout( memory.compareFlipped , 500 );
+},
 // using Math, chooses randomly how to set up board
-
-
-function randomCounter() {
-
-  while(randomTracker.length < 10) {
+randomCounter: function() {
+  while(memory.randomTracker.length < 10) {
     var randomNum = Math.floor((Math.random() * 10) + 1);
     var found = false;
-
-    for(var i = 0; i < randomTracker.length; i++) {
-      if (randomTracker[i] == randomNum) {found=true; break}
+    for(var i = 0; i < memory.randomTracker.length; i++) {
+      if (memory.randomTracker[i] == randomNum) {found=true; break}
     }
-
-    if (!found)randomTracker[randomTracker.length] = randomNum;
+    if (!found)memory.randomTracker[memory.randomTracker.length] = randomNum;
     }
-
-} // end of randomCounter
-
-randomCounter();  // set randomTracker to mix up square data-ids
-
-function setSquare() {
-
-for(var i = 0; i < cards.length; i++ ) {
+  }, // end of randomCounter
+setSquare: function() {
+for(var i = 0; i < memory.cards.length; i++ ) {
 var counter = 0;
-  if (randomTracker.length == 0) {
-    randomCounter();
+  if (memory.randomTracker.length == 0) {
+    memory.randomCounter();
   }
-
-  counter = randomTracker.pop();
-  cards[i].setAttribute( "data-id" , counter);
-}
-} // end setSquare
-
-setSquare(); // puts background-image in squares
-
-
-
-function compareFlipped() {
-clearTimeout(timeKeeper);
-
-var flipped = $( ".flip" );
-
-if(flipped.length == 2) {
-  var flipOne = $( ".flip .pieceBack" ).eq(0).attr( "data-id" );
-
-  var flipTwo = $( ".flip .pieceBack" ).eq(1).attr( "data-id" );
-
-  if(flipOne == flipTwo) {
-    $( ".flip" ).addClass( "stayFlipped" );
-    $( ".pieceContainer" ).removeClass( "flip" );
-    winner();
-  } else if (flipOne != flipTwo ) {
-    $( ".pieceContainer" ).removeClass( "flip" );
+  counter = memory.randomTracker.pop();
+  memory.cards[i].setAttribute( "data-id" , counter);
   }
-}
-
-} // end compareFlipped;
-
-
-
-function winner() {
+}, // end setSquare
+compareFlipped: function() {
+  clearTimeout(memory.timeKeeper);
+  var flipped = $( ".flip" );
+  if(flipped.length == 2) {
+    var flipOne = $( ".flip .pieceBack" ).eq(0).attr( "data-id" );
+    var flipTwo = $( ".flip .pieceBack" ).eq(1).attr( "data-id" );
+    if(flipOne == flipTwo) {
+      $( ".flip" ).addClass( "stayFlipped" );
+      $( ".pieceContainer" ).removeClass( "flip" );
+      memory.winner();
+    } else if (flipOne != flipTwo ) {
+      $( ".pieceContainer" ).removeClass( "flip" );
+    }
+  }
+}, // end compareFlipped;
+winner: function() {
 var winner = $( ".stayFlipped");
-
 if(winner.length == 20) {
   $( ".pieceContainer" ).addClass( "winner" );
   $( "#gameboard" ).prepend( "<h2>WINNER!!!!!!</h2>" );
   }
-}
-
-
-
-function clear() {
+},
+clear: function() {
  $( ".pieceContainer").removeClass( "stayFlipped" );
  $( ".pieceContainer").removeClass( "winner" );
  $( ".pieceBack" ).removeAttr( "data-id" );
  $( "h2" ).remove();
- randomCounter();
- setSquare();
+ memory.randomCounter();
+ memory.setSquare();
 }
+
+} // end of object
+
+memory.onClick();
+memory.randomCounter();  // set randomTracker to mix up square data-ids
+memory.setSquare(); // puts background-image in squares
