@@ -1,13 +1,14 @@
 body {
-  background-color: #B09D8C;
+  background-image: url("http://i982.photobucket.com/albums/ae307/FantasyWolf24/Background/Nature/Background94.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 h1 {
   text-align: center;
   margin-top: .5em;
-  color: #545454;
-  font-family: 'Cabin Condensed', sans-serif;
-  font-size: 4em;
-  text-shadow: 3px 3px #D9D9D1;
+  color: #fff;
+  font-family: 'Alegreya Sans SC', sans-serif;  font-size: 4em;
+  text-shadow: 3px 3px #014C35;
 }
 
 /************   Gameboard  **************/
@@ -15,15 +16,16 @@ h1 {
 #gameboard {
   width: 70%;
   border-radius: 5px;
-  margin: 0 auto;
-  padding: 2em;
-  background-color: #D9D9D1;
+  margin: 2em auto;
+  padding: 1em;
+  background-color: rgba(155, 175, 155, .9);
   box-shadow:  0 0 10px #4D392E;
   -webkit-perspective: 800px;
   -moz-perspective: 800px;
   perspective: 800px;
 }
 .pieceContainer{
+  z-index: 99;
   position: relative;
   display: inline-block;
   width: 15%;
@@ -40,6 +42,9 @@ h1 {
   -webkit-transform-style: preserve-3d; /*passing along its 3d perspective to its children*/
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
+}
+.pieceContainer:hover{
+    box-shadow: 0 0 10px #014C35;
 }
 .pieceContainer div {
   position: absolute;
@@ -95,9 +100,10 @@ h2 {
 #reset{
   width: 5%;
   margin: 2em auto;
-  color: #545454;
+  color: #fff;
 }
 button {
   padding: .3em 1em;
-  border-radius: 5%;
+  border-radius: 10%;
+
 }
