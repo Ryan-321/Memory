@@ -5,6 +5,25 @@ for(var i = 0; i < 20; i++) {
   $("#gameboard").append("<div class='pieceContainer'><div class='pieceFront'></div><div class='pieceBack'></div> </div>");
 };
 
+// Onclick for Skin Changes
+$('h3[name=beach]').on('click',function(){
+  $('body').addClass("beach");
+  $('#gameboard').addClass("beach");
+  $('body').removeClass("mountains");
+  $('#gameboard').removeClass("mountains");
+  $('h3').css('color','black')
+});
+
+$('h3[name=forest]').on('click',function(){
+  $('body').removeClass("beach mountains");
+  $('#gameboard').removeClass("beach mountains");
+  $('h3').css('color','white')
+});
+$('h3[name=mountains]').on('click',function(){
+  $('body').addClass("mountains");
+  $('#gameboard').addClass("mountains");
+  $('h3').css('color','black')
+});
 
 var memory = {
 
