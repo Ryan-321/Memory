@@ -44,8 +44,6 @@
 
 - As a user, I want to know if a I win or loose.
 
-- As a user, I want cool images to keep me engaged in the game
-
-- As a user, I want fun animations to keep me engaged in the game
+- As a user, I want cool images to keep the user engaged in the game
 
 - As a user, I want to choose from different gameplay types, visual or difficulty

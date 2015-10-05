@@ -10,6 +10,16 @@ h1 {
   font-family: 'Alegreya Sans SC', sans-serif;  font-size: 4em;
   text-shadow: 3px 3px #014C35;
 }
+h3{
+  color:white;
+  display:inline-block;
+  width: 15%;
+  text-align: center;
+  cursor: pointer;
+}
+h3:hover{
+  border-bottom: 2px solid inherit;
+}
 
 /************   Gameboard  **************/
 
@@ -18,7 +28,7 @@ h1 {
   border-radius: 5px;
   margin: 2em auto;
   padding: 1em;
-  background-color: rgba(155, 175, 155, .9);
+  background-color: rgba(155, 175, 155, .8);
   box-shadow:  0 0 10px #4D392E;
   -webkit-perspective: 800px;
   -moz-perspective: 800px;
@@ -95,15 +105,44 @@ h2 {
   transform: translateZ( 1000px );
 }
 
-/************   TIMER   **************/
+/************   RESET   **************/
 
-#reset{
-  width: 5%;
-  margin: 2em auto;
-  color: #fff;
-}
 button {
   padding: .3em 1em;
   border-radius: 10%;
+  display: block;
+  margin: 0 auto;
+  color: #fff;
+}
 
+/************   SKINS   **************/
+
+ .skins{
+  width: 70%;
+  margin: 0 auto;
+}
+.skins h3:first-of-type{
+  margin-left: 18%;
+}
+.beach{
+  background:url("http://i96.photobucket.com/albums/l173/Dancingwithoutmusic/Photography/IMG_0511.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#gameboard.beach{
+  background: rgba(149, 169, 189,.3);
+}
+.beach .pieceContainer:hover{
+    box-shadow: 0 0 10px #708DC6;
+}
+.mountains{
+  background:url("http://i65.photobucket.com/albums/h235/Ignwar/Album%20Mountains/MagesticReflectionsAlaska.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#gameboard.mountains{
+  background: rgba(149, 169, 189,.5);
+}
+.mountains .pieceContainer:hover{
+    box-shadow: 0 0 10px #fff;
 }
