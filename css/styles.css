@@ -8,7 +8,7 @@ h1 {
   margin-top: .5em;
   color: #fff;
   font-family: 'Alegreya Sans SC', sans-serif;  font-size: 4em;
-  text-shadow: 3px 3px #014C35;
+  text-shadow: 3px 3px #5C5C5C, 4px 4px #5C5C5C, 5px 5px #5C5C5C, 6px 6px #5C5C5C, 7px 7px #5C5C5C;
 }
 h3{
   color:white;
@@ -79,7 +79,8 @@ h2 {
   color: #545454;
   font-family: 'Cabin Condensed', sans-serif;
   font-size: 6em;
-  text-shadow: 3px 3px #4D392E;
+  text-shadow: 3px 3px #4D392E, 4px 4px #4D392E,5px 5px #4D392E,6px 6px #4D392E, 7px 7px #4D392E, 8px 8px #4D392E, 9px 9px #4D392E;
+  transform:skewX(10deg);
 }
 
 /************   TRANSFORMS   **************/
