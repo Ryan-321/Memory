@@ -34,6 +34,9 @@ $(".timer").TimeCircles().addListener(function(unit, value, total) {
         $("#gameboard").addClass("loser");
     }
 });
+
+$(".title").lettering();
+
 var memory = {
         timeKeeper: undefined,
         cards: document.querySelectorAll(".pieceBack"),

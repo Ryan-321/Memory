@@ -27,8 +27,15 @@ h3:hover {
 div.container {
     width: 100%;
     margin: 0 0 3em 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 div#gameboard {
     border-radius: 5px;
@@ -38,11 +45,13 @@ div#gameboard {
     background-color: #a1cfde;
     box-shadow: 0 0 10px #35537D;
     -webkit-perspective: 800px;
-    -moz-perspective: 800px;
     perspective: 800px;
 }
 aside {
-    order: -1;
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+        -ms-flex-order: -1;
+            order: -1;
     margin: 0;
     width: 20%;
 }
@@ -65,15 +74,14 @@ span.restart:hover{
     cursor: pointer;
     box-shadow: 0 0 10px #4D392E;
     transition: -webkit-transform .5s ease-in-out;
-    transition: -moz-transform .5s ease-in-out;
+    -webkit-transition: -webkit-transform .5s ease-in-out;
     transition: transform .5s ease-in-out;
+    transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
     -webkit-perspective-origin: 50% 0%;
     /*center top, default value - how it will rotate*/
-    -moz-perspective-origin: 50% 0%;
     perspective-origin: 50% 0%;
     -webkit-transform-style: preserve-3d;
     /*passing along its 3d perspective to its children*/
-    -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 .pieceContainer:hover {
@@ -88,7 +96,6 @@ span.restart:hover{
     height: 100%;
     border-radius: 5px;
     -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 .pieceFront {
@@ -102,7 +109,8 @@ h2 {
     font-family: 'Cabin Condensed', sans-serif;
     font-size: 6em;
     text-shadow: 3px 3px #4D392E, 4px 4px #4D392E, 5px 5px #4D392E, 6px 6px #4D392E, 7px 7px #4D392E, 8px 8px #4D392E, 9px 9px #4D392E;
-    transform: skewX(10deg);
+    -webkit-transform: skewX(10deg);
+            transform: skewX(10deg);
 }
 
 /************   TRANSFORMS   **************/
@@ -110,25 +118,21 @@ h2 {
 .flip {
     -webkit-transform: rotateX( 180deg);
     /* Flips the containerPiece */
-    -moz-transform: rotateX( 180deg);
     transform: rotateX( 180deg);
 }
 .stayFlipped {
     -webkit-transform: rotateX( 180deg);
     /* Flips the containerPiece */
-    -moz-transform: rotateX( 180deg);
     transform: rotateX( 180deg);
 }
 .pieceBack {
     -webkit-transform: rotateX( -180deg);
     /* Upends backPiece, so when flips back over, its rightside up */
-    -moz-transform: rotateX( -180deg);
     transform: rotateX( -180deg);
 }
 .winnerCards {
     -webkit-transform: translateZ( 1000px);
     /* Throws the cards at you */
-    -moz-transform: translateZ( 1000px);
     transform: translateZ( 1000px);
 }
 .winnerImg{
@@ -157,10 +161,29 @@ button {
     font-size: 1.25em;
     border: 3px solid #36454f;
     background-color: transparent;
+    -webkit-transition: border .3s;
     transition: border .3s;
-    transition-timing-function: ease;
+    -webkit-transition-timing-function: ease;
+            transition-timing-function: ease;
 }
 button:hover{
   color: #fff;
   border: 3px solid #fff;
+}
+
+
+/************   TITLE   **************/
+.char1,
+.char3,
+.char5,
+.char7,
+.char9,
+.char11,
+.char13{
+  top: -15px;
+}
+.title span{
+  position: relative;
+  font-size: 1.5em;
+  letter-spacing: .2em;
 }
