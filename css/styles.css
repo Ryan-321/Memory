@@ -1,103 +1,189 @@
 body {
-  background-color: #B09D8C;
+    background-image: url("../images/sky.jpg");
+    background-size: cover;
+    color: #36454f;
 }
 h1 {
-  text-align: center;
-  margin-top: .5em;
-  color: #545454;
-  font-family: 'Cabin Condensed', sans-serif;
-  font-size: 4em;
-  text-shadow: 3px 3px #D9D9D1;
+    text-align: center;
+    margin-top: .5em;
+    color: #fff;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 4em;
+    text-shadow: 3px 3px #C06C84, 4px 4px #C06C84, 5px 5px #C06C84, 6px 6px #C06C84, 7px 7px #C06C84;
+}
+h3 {
+    color: white;
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+    cursor: pointer;
+}
+h3:hover {
+    border-bottom: 2px solid inherit;
 }
 
 /************   Gameboard  **************/
 
-#gameboard {
-  width: 70%;
-  border-radius: 5px;
-  margin: 0 auto;
-  padding: 2em;
-  background-color: #D9D9D1;
-  box-shadow:  0 0 10px #4D392E;
-  -webkit-perspective: 800px;
-  -moz-perspective: 800px;
-  perspective: 800px;
+div.container {
+    width: 100%;
+    margin: 0 0 3em 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
-.pieceContainer{
-  position: relative;
-  display: inline-block;
-  width: 15%;
-  margin: 1em 0 1em 4%;
-  height: 5em;
+div#gameboard {
+    border-radius: 5px;
+    width: 70%;
+    padding: 1em;
+    margin: 0;
+    background-color: #a1cfde;
+    box-shadow: 0 0 10px #35537D;
+    -webkit-perspective: 800px;
+    perspective: 800px;
+}
+aside {
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+        -ms-flex-order: -1;
+            order: -1;
+    margin: 0;
+    width: 20%;
+}
+aside p{
+  text-align: center;
   cursor: pointer;
-  box-shadow: 0 0 10px #4D392E;
-  transition:-webkit-transform .5s ease-in-out;
-  transition:-moz-transform .5s ease-in-out;
-  transition: transform .5s ease-in-out;
-  -webkit-perspective-origin: 50% 0%; /*center top, default value - how it will rotate*/
-  -moz-perspective-origin: 50% 0%;
-  perspective-origin: 50% 0%;
-  -webkit-transform-style: preserve-3d; /*passing along its 3d perspective to its children*/
-  -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+  font-size: 1.25em;
+}
+span.start:hover,
+span.restart:hover{
+  color: #fff;
+}
+.pieceContainer {
+    z-index: 99;
+    position: relative;
+    display: inline-block;
+    width: 15%;
+    margin: 1em 0 1em 4%;
+    height: 5em;
+    cursor: pointer;
+    box-shadow: 0 0 10px #4D392E;
+    transition: -webkit-transform .5s ease-in-out;
+    -webkit-transition: -webkit-transform .5s ease-in-out;
+    transition: transform .5s ease-in-out;
+    transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+    -webkit-perspective-origin: 50% 0%;
+    /*center top, default value - how it will rotate*/
+    perspective-origin: 50% 0%;
+    -webkit-transform-style: preserve-3d;
+    /*passing along its 3d perspective to its children*/
+    transform-style: preserve-3d;
+}
+.pieceContainer:hover {
+    box-shadow: 0 0 10px #014C35;
 }
 .pieceContainer div {
-  position: absolute;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: 3em;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  backface-visibility: hidden;
+    position: absolute;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 3em;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 .pieceFront {
-  z-index: 100;
-  background-image: url("../images/Question_Mark.svg.png");
+    z-index: 100;
+    background-image: url("../images/Question_Mark.svg.png");
 }
-
 h2 {
-  text-align: center;
-  margin: 0;
-  color: #545454;
-  font-family: 'Cabin Condensed', sans-serif;
-  font-size: 6em;
-  text-shadow: 3px 3px #4D392E;
+    text-align: center;
+    margin: 0;
+    color: #545454;
+    font-family: 'Cabin Condensed', sans-serif;
+    font-size: 6em;
+    text-shadow: 3px 3px #4D392E, 4px 4px #4D392E, 5px 5px #4D392E, 6px 6px #4D392E, 7px 7px #4D392E, 8px 8px #4D392E, 9px 9px #4D392E;
+    -webkit-transform: skewX(10deg);
+            transform: skewX(10deg);
 }
 
 /************   TRANSFORMS   **************/
-.flip{
-   -webkit-transform: rotateX( 180deg );  /* Flips the containerPiece */
-   -moz-transform: rotateX( 180deg );
-   transform: rotateX( 180deg );
-}
-.stayFlipped{
-   -webkit-transform: rotateX( 180deg ); /* Flips the containerPiece */
-   -moz-transform: rotateX( 180deg );
-   transform: rotateX( 180deg );
 
+.flip {
+    -webkit-transform: rotateX( 180deg);
+    /* Flips the containerPiece */
+    transform: rotateX( 180deg);
 }
-.pieceBack{
-  -webkit-transform: rotateX( -180deg );  /* Upends backPiece, so when flips back over, its rightside up */
-  -moz-transform: rotateX( -180deg );
-  transform: rotateX( -180deg );
+.stayFlipped {
+    -webkit-transform: rotateX( 180deg);
+    /* Flips the containerPiece */
+    transform: rotateX( 180deg);
 }
-.winner{
-  -webkit-transform: translateZ( 1000px ); /* Throws the cards at you */
-  -moz-transform: translateZ( 1000px );
-  transform: translateZ( 1000px );
+.pieceBack {
+    -webkit-transform: rotateX( -180deg);
+    /* Upends backPiece, so when flips back over, its rightside up */
+    transform: rotateX( -180deg);
+}
+.winnerCards {
+    -webkit-transform: translateZ( 1000px);
+    /* Throws the cards at you */
+    transform: translateZ( 1000px);
+}
+.winnerImg{
+  background-image: url("../images/winner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.loser{
+  background-image: url("../images/loser.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-/************   TIMER   **************/
 
-#reset{
-  width: 5%;
-  margin: 2em auto;
-  color: #545454;
-}
+
+/************   RESET   **************/
+
 button {
-  padding: .3em 1em;
-  border-radius: 5%;
+    padding: .5em 1.25em;
+    display: block;
+    margin: 0 auto;
+    margin-top: 3em;
+    color: #36454f;
+    font-size: 1.25em;
+    border: 3px solid #36454f;
+    background-color: transparent;
+    -webkit-transition: border .3s;
+    transition: border .3s;
+    -webkit-transition-timing-function: ease;
+            transition-timing-function: ease;
+}
+button:hover{
+  color: #fff;
+  border: 3px solid #fff;
+}
+
+
+/************   TITLE   **************/
+.char1,
+.char3,
+.char5,
+.char7,
+.char9,
+.char11,
+.char13{
+  top: -15px;
+}
+.title span{
+  position: relative;
+  font-size: 1.5em;
+  letter-spacing: .2em;
 }

@@ -1,110 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Concentration</title>
-  <link href='http://fonts.googleapis.com/css?family=Cabin+Condensed:600' rel='stylesheet' type='text/css'>
-  <link href="css/normalize.css" rel="stylesheet" type="text/css" >
-  <link href="css/classForImgs.css" rel="stylesheet" type="text/css" >
-  <link href="css/styles.css" rel="stylesheet" type="text/css" >
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Concentration</title>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500' rel='stylesheet' type='text/css'>
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/classForImgs.css" rel="stylesheet" type="text/css">
+    <link href="timeCircles/TimeCircles.css" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-
-<!-- title for game  -->
-
-<h1>Concentration</h1>
-
-  <div id="gameboard"> <!-- container div for gameboard -->
-
-  <!-- divs for individual pieces of game -->
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-  <div class="pieceContainer">
-    <div class="pieceFront"></div>
-    <div class="pieceBack"></div>
-  </div>
-
-
-  </div> <!-- container div for gameboard -->
-
-  <div id="reset">  <!-- probably don't need, can take out -->
-    <button>Reset</button>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="script.js"></script>
+    <!-- title for game  -->
+    <h1 class="title">Concentration</h1>
+      <div class="container">
+        <div id="gameboard">
+          <!-- container div for gameboard -->
+        </div>
+        <aside>
+          <div class="timer" data-timer="60"></div><!-- counts in seconds -->
+          <p><span class="start">Start</span> | <span class="restart">Restart</span></p>
+          <button>Reset Cards</button>
+        </aside>
+      </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="lettering/jquery.lettering-0.6.1.min.js"></script>
+    <script src="timeCircles/TimeCircles.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
